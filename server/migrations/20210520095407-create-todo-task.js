@@ -8,11 +8,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       text: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       todoId: {
         type: Sequelize.INTEGER,
-        allowNull:false,
+        allowNull: false,
         refernces: {
           model: 'Todos',
           key: 'id'
@@ -21,12 +22,6 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      isCompleted:{
-        type: Sequelize.BOOLEAN,
-      },
-      taskPriority:{
-        type: Sequelize.STRING,
       },
       updatedAt: {
         allowNull: false,

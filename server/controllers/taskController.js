@@ -4,9 +4,9 @@ import { Todo, TodoTask } from "../models";
 const task = {
     async createTask({ body, decode }, res, next) {
         try {
-            const { title } = body;
+            const { title,taskPriority,isCompleted } = body;
             const { userId } = decode;
-            const todo = await Todo.create({ title, userId });
+            const todo = await Todo.create({ title, userId,taskPriority,isCompleted });
             return res.status(201).send(todo);
         }
         catch (exp) {
@@ -56,7 +56,7 @@ const task = {
             if (!myTask) {
                 return res.status(400).send({ error: 'Wrong task id' });
             }
-            const updatedTask = await Todo.update({ title: body.title || myTask.title }, {
+            const updatedTask = await Todo.update({ title: body.title, taskPriority:body.taskPriority, isCompleted:body.isCompleted }, {
                 where: {id:myTask.id},
                 returning:true,
                 plain:true

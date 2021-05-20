@@ -1,9 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   const TodoTask = sequelize.define('TodoTask', {
     text: DataTypes.STRING,
-    todoId: DataTypes.INTEGER,
-    isCompleted: DataTypes.BOOLEAN,
-    taskPriority: DataTypes.STRING
+    todoId: DataTypes.INTEGER
   }, {});
   TodoTask.associate = (models) => {
     TodoTask.belongsTo(models.Todo, {

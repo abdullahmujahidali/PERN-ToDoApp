@@ -1,6 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Todo = sequelize.define('Todo', {
     title: DataTypes.STRING,
+    taskPriority: DataTypes.STRING,
+    isCompleted:DataTypes.BOOLEAN,
     userId: DataTypes.INTEGER
   }, {});
   Todo.associate = (models) => {

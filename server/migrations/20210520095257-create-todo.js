@@ -19,6 +19,13 @@ module.exports = {
           key: 'id'
         }
       },
+      isCompleted: {
+        type: Sequelize.BOOLEAN,
+      },
+      taskPriority: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
