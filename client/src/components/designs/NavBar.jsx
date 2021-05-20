@@ -1,6 +1,5 @@
 import React from 'react';
 import { signUp,signIn } from '../../exertion/auth';
-import {connect} from 'react-redux'
 import {Nav} from './Styles'
 const Navbar = (props)=>{
     const handleSignUp = async () =>{
@@ -41,4 +40,4 @@ const Navbar = (props)=>{
 const mapStateToProps = ({auth}) =>{
     return {...auth}
 }
-export default connect(mapStateToProps,{signUp,signIn})(Navbar);
+export default (Navbar);

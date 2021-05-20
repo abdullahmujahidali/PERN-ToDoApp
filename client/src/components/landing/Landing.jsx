@@ -1,6 +1,6 @@
 import React from 'react';
 import { Main } from './Styles'
-import NavBar from '../nav/NavBar';
+import NavBar from '../designs/NavBar';
 
 const Landing = () => {
   return (
