@@ -12,6 +12,8 @@ const auth = (state = initialState, action) => {
         case 'SIGNIN_USER_FAILURE':
             console.log(action);
             return { ...state, signInErr: action.payload.error }
+        case 'SET_CURRENT_USER_SUCCESS':
+            return { ...state, user: action.payload };
         default:
             return state;
     }

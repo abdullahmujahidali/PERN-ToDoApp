@@ -1,6 +1,6 @@
 import CreateContext from './CreateContext';
 import authReducer from '../reducers/auth';
-import { signUp, signIn } from '../exertion';
+import { signUp, signIn, setCurrentUser } from '../exertion';
 
 export const initialState = {
   user: null,
@@ -11,6 +11,6 @@ export const initialState = {
 
 export const { Context, Provider } = CreateContext(
   authReducer,
-  { signUp, signIn },
+  { signUp, signIn, setCurrentUser },
   initialState,
 )

@@ -1,15 +1,19 @@
-import React from 'react';
-import { signUp, signIn } from '../../exertion/auth';
-import { Nav } from './Styles'
+import React, { useContext, useEffect } from 'react';
+import Cookies from 'js-cookie';
+import jwtDecode from 'jwt-decode';
 import { NavLink, useHistory } from 'react-router-dom';
-const Navbar = (props) => {
-    const handleSignUp = async () => {
-        await props.signUp({
-            name: 'addy',
-            email: 'addy@gmail.com',
-            password: 'abc'
-        });
-    }
+import { Nav } from './Styles';
+import { Context as AuthContext } from '../../context/authContext';
+
+const NavBar = (props) => {
+    const { state: { user }, setCurrentUser } = useContext(AuthContext);
+    const history = useHistory();
+
+    useEffect(() => {
+        if (Cookies.get('token')) {
+            setCurrentUser(Cookies, jwtDecode);
+        }
+    }, []);
     const handleSignIn = async () => {
         await props.signIn({
             email: 'addy@gmail.com',
@@ -26,12 +30,18 @@ const Navbar = (props) => {
                         </div>
                     </div>
                     <div className="auth-btns col-md-7">
-                        <NavLink to="/signup">
-                            <button className="btn sign-up">Sign Up</button>
-                        </NavLink>
-                        <NavLink to="/signin">
-                            <button className="btn sign-in">Sign In</button>
-                        </NavLink>
+                        {user ? (
+                            <div className="float-right mt-3">{user.email}</div>
+                        ) : (
+                            <>
+                                <NavLink to="/signup">
+                                    <button className="btn sign-up">Sign Up</button>
+                                </NavLink>
+                                <NavLink to="/signin">
+                                    <button className="btn sign-in">Sign In</button>
+                                </NavLink>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
@@ -42,4 +52,4 @@ const Navbar = (props) => {
 const mapStateToProps = ({ auth }) => {
     return { ...auth }
 }
-export default (Navbar);
+export default NavBar;
