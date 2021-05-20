@@ -1,6 +1,20 @@
 import React from 'react';
+import { signUp,signIn } from '../../exertion/auth';
+import {connect} from 'react-redux'
 import {Nav} from './Styles'
-const Navbar = ()=>{
+const Navbar = (props)=>{
+    const handleSignUp = async () =>{
+        await props.signUp({
+        name: 'addy', 
+        email:'addy@gmail.com',
+        password:'abc'}); 
+    }
+    const handleSignIn = async () =>{
+        await props.signIn({ 
+        email:'addy@gmail.com',
+        password:'abc'
+        }); 
+    }
     return (
         <Nav>
             <div class="container-fluid">
@@ -11,10 +25,10 @@ const Navbar = ()=>{
                         </div>
                     </div>
                     <div className="auth-btns col-md-7">
-                        <button className="btn sign-up">
+                        <button  onClick={handleSignUp} className="btn sign-up">
                             Sign Up
                         </button>
-                        <button className="btn sign-in">
+                        <button onClick={handleSignIn} className="btn sign-in">
                             Sign In
                         </button>
                     </div>
@@ -24,4 +38,7 @@ const Navbar = ()=>{
     )
 };
 
-export default Navbar;
+const mapStateToProps = ({auth}) =>{
+    return {...auth}
+}
+export default connect(mapStateToProps,{signUp,signIn})(Navbar);
