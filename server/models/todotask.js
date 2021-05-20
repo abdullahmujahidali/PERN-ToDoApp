@@ -1,15 +1,15 @@
 module.exports = (sequelize, DataTypes) => {
-  const TodoItem = sequelize.define('TodoItem', {
+  const TodoTask = sequelize.define('TodoTask', {
     text: DataTypes.STRING,
     todoId: DataTypes.INTEGER,
     isCompleted: DataTypes.BOOLEAN,
     taskPriority: DataTypes.STRING
   }, {});
-  TodoItem.associate = (models) => {
-    TodoItem.belongsTo(models.Todo, {
+  TodoTask.associate = (models) => {
+    TodoTask.belongsTo(models.Todo, {
       as: 'todo',
       foreignKey: 'todoId'
     });
   };
-  return TodoItem;
+  return TodoTask;
 };
