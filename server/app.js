@@ -1,14 +1,12 @@
 import express from 'express';
+import { routes } from './routes';
 
 const app = express();
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json())
 
-
-app.get('/',(req,res)=>{
-    res.send({message:"Welcome to my Todo App"});
-})
+routes(app);
 
 const port = process.env.PORT || 5000
 
