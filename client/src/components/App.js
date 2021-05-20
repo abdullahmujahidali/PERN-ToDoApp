@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from '../context/authContext';
 import Landing from './landing/Landing';
 
 function App() {
@@ -9,4 +10,10 @@ function App() {
   );
 }
 
-export default App;
+export default () => {
+  return (
+    <Provider>
+      <App />
+    </Provider>
+  )
+};
