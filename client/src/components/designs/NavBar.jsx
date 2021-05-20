@@ -1,18 +1,20 @@
 import React from 'react';
-import { signUp,signIn } from '../../exertion/auth';
-import {Nav} from './Styles'
-const Navbar = (props)=>{
-    const handleSignUp = async () =>{
+import { signUp, signIn } from '../../exertion/auth';
+import { Nav } from './Styles'
+import { NavLink, useHistory } from 'react-router-dom';
+const Navbar = (props) => {
+    const handleSignUp = async () => {
         await props.signUp({
-        name: 'addy', 
-        email:'addy@gmail.com',
-        password:'abc'}); 
+            name: 'addy',
+            email: 'addy@gmail.com',
+            password: 'abc'
+        });
     }
-    const handleSignIn = async () =>{
-        await props.signIn({ 
-        email:'addy@gmail.com',
-        password:'abc'
-        }); 
+    const handleSignIn = async () => {
+        await props.signIn({
+            email: 'addy@gmail.com',
+            password: 'abc'
+        });
     }
     return (
         <Nav>
@@ -24,12 +26,12 @@ const Navbar = (props)=>{
                         </div>
                     </div>
                     <div className="auth-btns col-md-7">
-                        <button  onClick={handleSignUp} className="btn sign-up">
-                            Sign Up
-                        </button>
-                        <button onClick={handleSignIn} className="btn sign-in">
-                            Sign In
-                        </button>
+                        <NavLink to="/signup">
+                            <button className="btn sign-up">Sign Up</button>
+                        </NavLink>
+                        <NavLink to="/signin">
+                            <button className="btn sign-in">Sign In</button>
+                        </NavLink>
                     </div>
                 </div>
             </div>
@@ -37,7 +39,7 @@ const Navbar = (props)=>{
     )
 };
 
-const mapStateToProps = ({auth}) =>{
-    return {...auth}
+const mapStateToProps = ({ auth }) => {
+    return { ...auth }
 }
 export default (Navbar);
