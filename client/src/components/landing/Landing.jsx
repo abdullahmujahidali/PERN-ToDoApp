@@ -19,10 +19,10 @@ const Landing = () => {
           <div className="row">
             <div className="col-md-12">
               <NavLink to="/signup">
-                <button className="btn2" >SIGN IN</button>
+                <button className="btn2" >SIGN UP</button>
               </NavLink>
               <NavLink to="/signin">
-                <button className="btn1">LOGIN</button>
+                <button className="btn1">SIGN IN</button>
               </NavLink>
 
             </div>

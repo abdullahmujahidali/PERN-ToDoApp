@@ -31,13 +31,13 @@ const ListTodos = () => {
 
   return (
     <Design>
-    <NavBar>
+
       <TodoList>
         {showModal && <AddTaskModal closeModal={handleCloseModal} />}
         <div className="container">
           <div className="row">
             <div className="col-md-12 header text-center mt-3">
-              <h1>My Todos   <button className="btn btn-primary float-right" onClick={handleShowModal}>New</button> </h1>
+              <h1 className="blinking">My Todos   <button className="btn btn-primary float-right" onClick={handleShowModal}>New</button> </h1>
             </div>
           </div>
           <div className="row">
@@ -48,7 +48,7 @@ const ListTodos = () => {
           />
         </div>
       </TodoList>
-      </NavBar>
+
     </Design>
   )
 }

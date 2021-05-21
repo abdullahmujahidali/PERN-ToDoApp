@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Nav = styled.nav`
   display: inline-block;
   width: 100%;
-  height: 60px;
+  height: 80px;
   color: #fff;
   background-color: #000;
   .logo {
@@ -11,12 +11,15 @@ export const Nav = styled.nav`
     font-style: italic;
     font-weight: bold;
     line-height: 55px;
+    margin-left:15px;
+    margin-top:10px;
     font-size: xx-large;
     a {
       text-decoration: none;
       color: #ffffff;
     }
   }
+
   .auth-btns {
     width: 100%;
     .btn {
@@ -37,4 +40,6 @@ export const Nav = styled.nav`
       margin-top: 15px;
     }
   }
+ 
+
 `;

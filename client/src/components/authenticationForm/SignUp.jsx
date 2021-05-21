@@ -1,11 +1,10 @@
 import React, { useState, useContext } from 'react';
 import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
-import Design from '../designs/Design';
 import { AuthFormWrapper } from './Styles';
 import { Context } from '../../context/authContext';
-
 const SignUp = ({ signUp }) => {
+  
   const { state } = useContext(Context);
   const [name, setname] = useState('');
   const [email, setemail] = useState('');
@@ -15,14 +14,12 @@ const SignUp = ({ signUp }) => {
   const [emailErr, setemailErr] = useState('');
   const [passwordErr, setpasswordErr] = useState('');
   const [confPasswordErr, setconfPasswordErr] = useState('');
-
   const handleChange = (e, name) => {
     const user = {};
     const emailRegEx = RegExp(
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
     user[name] = e.target.value;
-    // validations
     switch (name) {
       case 'name':
         setname(user.name);
@@ -44,21 +41,23 @@ const SignUp = ({ signUp }) => {
         break;
     }
   }
-
   const handleSignUp = async (e) => {
     e.preventDefault();
     if (name && email && password && confPassword && !nameErr && !emailErr && !passwordErr && !confPasswordErr) {
       await signUp({ name, email, password });
     }
   }
-  
   return (
-    <Design>
+    <>
+      <p style={{textAlign: "center", marginTop:"45px" }}>
+        <img className="" src='/to-do2.png'></img>
+      </p>
       <AuthFormWrapper>
+
         <h2 className="text-center">Create an Account</h2>
         {state.signUpErr && <div className="alert alert-danger text-center">
           <span className="text-danger text-capitalize">{state.signUpErr}</span>
-          </div>}
+        </div>}
         <form className="mt-4" onSubmit={handleSignUp}>
           <div className="form-group">
             <label htmlFor="name">Enter Full Name</label>
@@ -108,7 +107,7 @@ const SignUp = ({ signUp }) => {
           <div className="form-group">
             <label htmlFor="Confirm Password">Confirm Password</label>
             <input
-              type="password" 
+              type="password"
               name="confPassword"
               className={classnames(
                 "form-control",
@@ -120,13 +119,15 @@ const SignUp = ({ signUp }) => {
             />
             {confPasswordErr && <small className="text-danger">{confPasswordErr}</small>}
           </div>
-          <input type="submit" className="btn btn-primary" value="Sign Up"/>
+          <input type="submit" className="btn btn-primary" value="Sign Up" />
         </form>
         <p className="float-left">
-          Already have an account? <NavLink to="/">Sign In</NavLink>
+          Already have an account? <NavLink to="/signin">Sign In</NavLink>
         </p>
       </AuthFormWrapper>
-    </Design>
+
+    </>
+
   )
 }
 

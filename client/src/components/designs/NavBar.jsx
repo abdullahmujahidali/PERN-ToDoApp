@@ -23,11 +23,11 @@ const NavBar = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-5">
-            <div className="logo"><a href="/">Best To Do List</a></div>
+          <img className="logo" src='/to-do.png'></img>
           </div>
           <div className="auth-btns col-md-7">
             {user ? (
-              <div className="float-right mt-3" onClick={logOut}> LOG OUT</div>
+              <div className="float-right mt-4" onClick={logOut}> LOG OUT</div>
             ) : (
               <>
                 <NavLink to="/signup">
@@ -44,10 +44,5 @@ const NavBar = () => {
     </Nav>
   )
 };
-
-const mapStateToProps = ({ auth }) => {
-  console.log(auth);
-  return { ...auth }
-}
 
 export default NavBar;

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
-import Design from '../designs/Design';
 import { AuthFormWrapper } from './Styles';
 import { Context } from '../../context/authContext';
 
@@ -41,7 +40,10 @@ const SignIn = ({ signIn }) => {
   }
 
   return (
-    <Design>
+    <>
+       <p style={{textAlign: "center", marginTop:"100px" }}>
+        <img className="" src='/to-do2.png'></img>
+      </p>
       <AuthFormWrapper>
         <h2 className="text-center">Sign In</h2>
         {state.signInErr && <div className="alert alert-danger text-center">
@@ -49,7 +51,7 @@ const SignIn = ({ signIn }) => {
         </div>}
         <form className="mt-4" onSubmit={handleSignIn}>
           <div className="form-group">
-            <label htmlFor="email">Enter Email Address</label>
+            <label htmlFor="email">Enter Email</label>
             <input
               type="email"
               name="email"
@@ -84,7 +86,7 @@ const SignIn = ({ signIn }) => {
           Don't yet have an account? <NavLink to="/signup">Sign Up</NavLink>
         </p>
       </AuthFormWrapper>
-    </Design>
+    </>
   )
 }
 

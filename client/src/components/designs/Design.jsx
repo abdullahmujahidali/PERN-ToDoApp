@@ -11,8 +11,10 @@ const Wrapper = styled.div`
 
 const Design = ({ children }) => {
   return (
-    <Wrapper>        {children}
-      <Footer />
+    <Wrapper>      
+    <NavBar />
+      {children}
+    <Footer />
     </Wrapper>
   )
 }

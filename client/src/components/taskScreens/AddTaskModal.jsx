@@ -8,9 +8,9 @@ import { ModalWrapper } from './Styles';
 const AddTaskModal = (props) => {
   const { createTodo } = useContext(TodosContext);
   const [todo, settodo] = useState('');
-  const [option, setOption] = useState('')
+  const [option, setOption] = useState('High')
   const [dragChecked, setDragChecked] = useState(false)
-  const [label, setLabel] = useState('')
+  let [label, setLabel] = useState('')
   let myRef;
   useEffect(() => {
     document.addEventListener('click', closeTodoModal);
@@ -40,11 +40,9 @@ const AddTaskModal = (props) => {
     console.log("value: ",dragChecked)
     console.log("labels: ",label)
     if (todo || option) {
-     
+      label='Priority,'+label;
       await createTodo({ title: todo, taskPriority: option, isCompleted:dragChecked,taskLabel:label }, Cookies);
-    
       props.closeModal();
-
     }
   }
 
