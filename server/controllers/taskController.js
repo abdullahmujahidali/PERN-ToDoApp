@@ -1,6 +1,19 @@
 import { decode } from "jsonwebtoken";
 import { Todo, TodoTask } from "../models";
 
+/*
+This file is responsible to fetch the data from the body (front end) 
+status 201 : Created
+status 200: Ok
+status 400: Bad Request
+Used for task related work (Create, Read, Update, Delete)
+
+Async Await:
+    async functions can have await expression the purpose of it is to pause the execution of 
+    the function and wait for the passed Promise resolution and then resume the async functions
+
+*/
+
 const task = {
     async createTask({ body, decode }, res, next) {
         try {
@@ -16,11 +29,7 @@ const task = {
     async fetchAllTask({ decode }, res, next) {
         try {
             const myTask = await Todo.findAll({
-                where: { userId: decode.userId },
-                include: [{
-                    model: TodoTask,
-                    as: 'TodoTasks'
-                }],
+                where: { userId: decode.userId }
             });
             return res.status(200).send(myTask);
         }

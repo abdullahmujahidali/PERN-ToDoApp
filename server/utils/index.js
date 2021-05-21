@@ -1,3 +1,8 @@
+/**
+ * this file is a utility file which is responsible for generating jwt for a user by signing it with email and id 
+ * each token is valid for 24 hour and also we are encrypting our user passsword here using bcrypt module that allows 
+ * us to encrypt and decrypt data
+ */
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { config } from 'dotenv';

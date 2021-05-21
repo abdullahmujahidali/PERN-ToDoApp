@@ -1,5 +1,12 @@
 import emailValidator from 'validator';
 import {User} from '../models';
+/*
+This file is to send back validation and verification error.
+Validator.js: Used to validate emails in this case
+status 409: Conflict
+status 400: Bad Request
+Used for authentication (Sign Up & Sign In) mostly related to email and password and check whether user already exists or not 
+*/
 
 export default async (req,res,next) =>{
     const {email,name,password}= req.body;

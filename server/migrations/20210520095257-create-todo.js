@@ -1,4 +1,15 @@
-'use strict';
+/*
+
+Sequelize:
+  Sequlize is a Node.js ORM tool for SQL databases, helps in database functionalities in the server side
+
+This file is responsible for creating model for our task table with its attributes 
+
+Up in sequalize means that all commands will be executed when running sequalize.
+Down in sequalize means all commands will be executed when running sequalize db:migrate:undo
+Used for creating tasks
+
+*/
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Todos', {

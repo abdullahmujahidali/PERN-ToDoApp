@@ -1,3 +1,9 @@
+/*
+The purpose of this file is to create a new model when we are trying to perform task related to this particular model 
+and define assoication with other table like foreign key etc.
+todo table has a foreign key of userId from user table
+*/
+
 module.exports = (sequelize, DataTypes) => {
   const Todo = sequelize.define('Todo', {
     title: DataTypes.STRING,
@@ -11,10 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       as: 'user',
       foreignKey: 'userId'
     });
-    Todo.hasMany(models.TodoTask, {
-      as: 'TodoTasks',
-      foreignKey: 'todoId'
-    });
+
   };
   return Todo;
 };

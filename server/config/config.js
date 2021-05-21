@@ -1,3 +1,7 @@
+/**
+ * this file is responsible to configure eviornment whether it is development, testing or production with
+ * their own secret credentials such as database username and database password.
+ */
 require('dotenv').config();
 
 module.exports = {

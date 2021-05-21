@@ -1,8 +1,13 @@
+/**
+ * here we are defining all our routes that we have created so far for this application there are 2 different routes
+ * user and todolist both have different sub routes and some have its own middleware requirement as defined s
+ */
+
 import auth from '../controllers/authController';
 import customMiddleWare from  '../middleware/auth';
 import gateway from  '../middleware/gateway';
 import task from '../controllers/taskController';
-import todoTaks from '../controllers/todoTaksController';
+
 export const routes = (app) => {
     app.get('/', (req, res) => res.send({
         message: "Welcome to my Todo backend"
