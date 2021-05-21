@@ -1,3 +1,7 @@
+/**
+ * this is the entry point of our frontend this is the file which handles all the routes at frontend side
+ */
+
 import React, { useContext } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
@@ -10,13 +14,7 @@ import ListTodos from './taskScreens/ListTodo';
 
 function App() {
   const { signUp, signIn } = useContext(Context)
-  const history = useHistory();
-  let user = JSON.parse(localStorage.getItem('token'))
-  console.warn('token is',user);
-  function logOut(){
-    localStorage.clear();
-    history.push('/')
-  }
+  const history= useHistory();
   return (
     <div className="App">
       <Router>

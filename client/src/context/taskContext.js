@@ -1,3 +1,6 @@
+/**
+ * here context for our todo list is handled 
+ */
 import { createTodo, fetchTodos, createTask, updateTask, deleteTodo } from '../exertion/todos';
 import CreateContext from './CreateContext';
 import todosReducer from '../reducers/task';

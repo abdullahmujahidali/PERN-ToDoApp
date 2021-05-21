@@ -1,3 +1,6 @@
+/**
+ * a simple landing page of the application
+ */
 import React from 'react';
 import { NavLink } from "react-router-dom"
 import { Main } from './Styles'

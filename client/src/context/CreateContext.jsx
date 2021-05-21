@@ -1,3 +1,6 @@
+/**
+ * create context is used for todo task here useReducer returns state data and triigers action types 
+ */
 import React, { useReducer, createContext } from 'react';
 
 export default (reducer, actions, initialState) => {

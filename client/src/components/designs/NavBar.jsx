@@ -1,3 +1,16 @@
+/**
+ * Navbar is one of the common component in each application here as our navbar contains only logout component but 
+ * i have defined other case around if a user is not logged in means his/her token is not generated we will see sign in and sign
+ * up button and when he/she will be logged in he/she will see logout button
+Cookie: 
+  Cookie is a lightweight JS Api for handling cookies, here it is used to store user infromation on web pages 
+  in localstorage user token is being generated if we hit localStorage.clean() it will be removed.
+
+  useHistory: is used to access the history prop from router we often use it to push or replace certain history from our stack.
+  Replace is commonly used in react native and push is used in react js normally,
+
+*/
+
 import React, { useContext, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';

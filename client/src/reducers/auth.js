@@ -1,3 +1,6 @@
+/**
+ * this file handles all the reducers state for user includes success and failures
+ */
 import { initialState } from "../context/authContext";
 
 const auth = (state = initialState, action) => {

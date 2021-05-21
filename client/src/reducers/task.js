@@ -1,3 +1,7 @@
+/**
+ * this file handles all the reducers state for tasks includes success and failures
+ */
+
 import { initialState } from "../context/taskContext";
 
 const todosReducer = (state = initialState, action) => {

@@ -1,3 +1,19 @@
+/**
+* This component is responsible for the UI of sign in page of this application 
+class name is a package that allows us to take any number of arguments which can be string or object here it is 
+being used to check the email and password properties
+
+Use State:
+  Use state is a hook that allows us to have a state variable in functional component we can set or pass values using 
+  use state
+
+  Use Context:
+    Use context is used to share information with any component
+
+    Here we are passing information from form to our auth context 
+
+*/
+
 import React, { useState, useContext } from 'react';
 import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
@@ -41,7 +57,7 @@ const SignIn = ({ signIn }) => {
 
   return (
     <>
-       <p style={{textAlign: "center", marginTop:"100px" }}>
+      <p style={{ textAlign: "center", marginTop: "100px" }}>
         <img className="" src='/to-do2.png'></img>
       </p>
       <AuthFormWrapper>

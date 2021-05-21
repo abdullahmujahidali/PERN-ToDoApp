@@ -1,3 +1,7 @@
+/**
+ * styled components are faster than other styling this file is for authentication forms only
+ */
+
 import styled from 'styled-components';
 
 export const AuthFormWrapper = styled.div`

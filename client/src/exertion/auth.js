@@ -1,3 +1,6 @@
+/**
+ * all the actions are being handled in this file for user which consist of all cases loading, success and failure
+ */
 import apiHandler from '../apiHandler';
 
 export const signUp = (dispatch) => async (user) => {

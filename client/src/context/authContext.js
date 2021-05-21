@@ -1,3 +1,7 @@
+/**
+ * auth context is for user authentication
+ */
+
 import CreateContext from './CreateContext';
 import authReducer from '../reducers/auth';
 import { signUp, signIn, setCurrentUser } from '../exertion';
