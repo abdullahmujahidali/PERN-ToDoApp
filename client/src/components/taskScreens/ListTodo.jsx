@@ -5,6 +5,7 @@ import { TodoList } from './Styles';
 import AddTaskModal from './AddTaskModal';
 import { Context as TodosContext, Provider as TodosProvider } from '../../context/taskContext';
 import RenderTodos from './RenderTask';
+import NavBar from '../designs/NavBar';
 
 
 const ListTodos = () => {
@@ -30,19 +31,16 @@ const ListTodos = () => {
 
   return (
     <Design>
+    <NavBar>
       <TodoList>
         {showModal && <AddTaskModal closeModal={handleCloseModal} />}
         <div className="container">
           <div className="row">
             <div className="col-md-12 header text-center mt-3">
-              <h1>My Todos</h1>
-            </div>
-            <div className="col-md-12">
-              <button className="btn btn-primary float-right" onClick={handleShowModal}>New</button>
+              <h1>My Todos   <button className="btn btn-primary float-right" onClick={handleShowModal}>New</button> </h1>
             </div>
           </div>
           <div className="row">
-
           </div>
           <RenderTodos
             handleAddTask={handleAddTask}
@@ -50,6 +48,7 @@ const ListTodos = () => {
           />
         </div>
       </TodoList>
+      </NavBar>
     </Design>
   )
 }

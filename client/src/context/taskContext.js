@@ -1,4 +1,4 @@
-import { createTodo, fetchTodos, createTask, markTaskAsDone, deleteTodo } from '../exertion/todos';
+import { createTodo, fetchTodos, createTask, updateTask, deleteTodo } from '../exertion/todos';
 import CreateContext from './CreateContext';
 import todosReducer from '../reducers/task';
 export const initialState = {
@@ -9,6 +9,6 @@ export const initialState = {
 
 export const { Context, Provider } = CreateContext(
     todosReducer,
-    { createTodo, fetchTodos, createTask, markTaskAsDone, deleteTodo },
+    { createTodo, fetchTodos, createTask, updateTask, deleteTodo },
     initialState
 );

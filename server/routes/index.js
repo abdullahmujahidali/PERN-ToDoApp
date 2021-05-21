@@ -17,9 +17,6 @@ export const routes = (app) => {
     app.put('/server/todos/:todoId',gateway,task.updateTask);
     app.delete('/server/todos/:todoId',gateway,task.deleteTask);
 
-    app.post('/server/todoTasks',todoTaks.create);
-    app.get('/server/todos/:todoId/todoTaks',todoTaks.fetchAll);
-    app.get('/server/todoTasks/:todoIdItemId',gateway,todoTaks.fetchOne);
 };
 
 

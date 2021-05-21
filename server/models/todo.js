@@ -3,10 +3,10 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     taskPriority: DataTypes.STRING,
     isCompleted:DataTypes.BOOLEAN,
+    taskLabel: DataTypes.STRING,
     userId: DataTypes.INTEGER
   }, {});
   Todo.associate = (models) => {
-    // associations can be defined here
     Todo.belongsTo(models.User, {
       as: 'user',
       foreignKey: 'userId'

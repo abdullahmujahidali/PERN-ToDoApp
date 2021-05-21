@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Cookies from 'js-cookie';
 import { Context as TodosContext, Provider as TodosProvider } from '../../context/taskContext';
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
+import { DragSwitch } from 'react-dragswitch'
+import 'react-dragswitch/dist/index.css'
 import { ModalWrapper } from './Styles';
 
 const AddTaskModal = (props) => {
   const { createTodo } = useContext(TodosContext);
   const [todo, settodo] = useState('');
   const [option, setOption] = useState('')
+  const [dragChecked, setDragChecked] = useState(false)
+  const [label, setLabel] = useState('')
   let myRef;
   useEffect(() => {
     document.addEventListener('click', closeTodoModal);
@@ -28,17 +30,19 @@ const AddTaskModal = (props) => {
     settodo(e.target.value);
   }
 
-  const handlePriority = (e) => {
+  const handleLabel = (e) => {
     e.preventDefault();
-    setOption(e.target.value);
+    setLabel(e.target.value);
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(todo)
+    console.log("value: ",dragChecked)
+    console.log("labels: ",label)
     if (todo || option) {
-      await createTodo({ title: todo, taskPriority: option }, Cookies);
-      console.log(option)
+     
+      await createTodo({ title: todo, taskPriority: option, isCompleted:dragChecked,taskLabel:label }, Cookies);
+    
       props.closeModal();
 
     }
@@ -67,6 +71,23 @@ const AddTaskModal = (props) => {
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
           </select>
+          <br />
+          <input
+            type="text"
+            name="label"
+            className="form-control"
+            placeholder="Enter labels"
+            onChange={handleLabel}
+          />
+          <br />
+          <label>
+            <span>Complete Status: </span>
+            <DragSwitch offColor='rgb(200,0,0)' checked={dragChecked} onChange={(e) => {
+              setDragChecked(e)
+            }} />
+          </label>
+
+
         </div>
         <button
           className="btn btn-primary float-right"

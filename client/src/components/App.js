@@ -10,6 +10,13 @@ import ListTodos from './taskScreens/ListTodo';
 
 function App() {
   const { signUp, signIn } = useContext(Context)
+  const history = useHistory();
+  let user = JSON.parse(localStorage.getItem('token'))
+  console.warn('token is',user);
+  function logOut(){
+    localStorage.clear();
+    history.push('/')
+  }
   return (
     <div className="App">
       <Router>

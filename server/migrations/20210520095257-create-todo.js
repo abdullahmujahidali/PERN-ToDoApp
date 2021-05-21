@@ -13,7 +13,7 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        allowNull:false,
+        allowNull: false,
         refernces: {
           model: 'Users',
           key: 'id'
@@ -23,6 +23,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
       },
       taskPriority: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      taskLabel: {
         type: Sequelize.STRING,
         allowNull: true,
       },

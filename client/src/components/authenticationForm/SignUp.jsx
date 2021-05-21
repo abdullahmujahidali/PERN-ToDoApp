@@ -123,7 +123,7 @@ const SignUp = ({ signUp }) => {
           <input type="submit" className="btn btn-primary" value="Sign Up"/>
         </form>
         <p className="float-left">
-          Already have an account? <NavLink to="signin">Sign In</NavLink>
+          Already have an account? <NavLink to="/">Sign In</NavLink>
         </p>
       </AuthFormWrapper>
     </Design>

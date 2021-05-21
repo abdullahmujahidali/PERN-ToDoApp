@@ -2,11 +2,12 @@ import React, { useEffect, useContext, useState } from 'react';
 import Cookies from 'js-cookie';
 import { Context as TodosContext } from '../../context/taskContext';
 import AddLabel from './AddLabel';
-import ListTasks from './ListTasks';
+import { Context as Tontext, Provider as TodosProvider } from '../../context/taskContext';
 const RenderTodos = () => {
     const [showCreateTask, setshowCreateTask] = useState(false);
     const [todoId, settodoId] = useState(0);
     const [task, settask] = useState('')
+    const {updateTask} = useContext(Tontext)
     const { state, createTask, markTaskAsDone, fetchTodos, deleteTodo } = useContext(TodosContext);
 
     const handleAddTask = (todo) => {
@@ -21,10 +22,8 @@ const RenderTodos = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (task) {
-            const res = await createTask({ text: task, todoId }, Cookies);
-            if (res) {
-                await fetchTodos(Cookies);
-            }
+            await updateTask({ title: task,todoId }, Cookies);
+
         }
     }
 
@@ -45,6 +44,7 @@ const RenderTodos = () => {
             await fetchTodos(Cookies);
         }
     }
+
     return (
         <div className="container">
             <div className="row justify-content-center todos">
@@ -58,10 +58,15 @@ const RenderTodos = () => {
                             <button onClick={() => handleAddTask(todo)} className="float-right add-btn">
                                 Add task
                             </button>
-                            <p>{i}. {todo.title}<br />{todo.taskPriority} </p>
-                            <ul className="list-group">
-                                <ListTasks handleDone={handleDone} todo={todo} />
-                            </ul>
+                            <row>
+                                <div className="col-md-4">
+                                    <p>{i}. {todo.title} {todo.taskPriority} </p>
+                                </div>
+                                <div className="col-md-4">
+                                Status: <b>{todo.isCompleted === true ? 'Completed' : 'Incomplete'}</b>.
+                                Labels: {todo.taskLabel} 
+                                </div>
+                            </row>
                             {showCreateTask && todoId === todo.id && <AddLabel handleChange={handleChange} handleSubmit={handleSubmit} />}
                         </div>
                     )

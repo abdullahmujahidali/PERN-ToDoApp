@@ -24,7 +24,19 @@ export const createTodo = (dispatch) => async (todo, Cookies) => {
       }
     }
   }
-  
+
+  export const updateTask = (dispatch) => async (todoId, Cookies) => {
+    try {
+      dispatch({ type: 'UPDATE_TODO_LOADING' });
+      const res = await apiHandler(`/todos/${todoId}`, 'put', null, Cookies.get('token'));
+      dispatch({ type: 'UPDATE_TODO_SUCCESS', payload: todoId });
+      return res;
+    } catch (err) {
+      console.log(err)
+      return dispatch({ type: 'UPDATE_TODO_FAILURE', payload: err.response.data })
+    }
+  }
+
   export const deleteTodo = (dispatch) => async (todoId, Cookies) => {
     try {
       dispatch({ type: 'DELETE_TODO_LOADING' });

@@ -36,6 +36,10 @@ const todosReducer = (state = initialState, action) => {
             const newTodos = todos.filter((todo) => todo.id !== action.payload);
             return { ...state, todos: newTodos };
 
+        case 'UPDATE_TODO_SUCCESS':
+            const eT = todos.filter((todo) => todo.id !== action.payload);
+            return { ...state, todos: eT };
+
         case 'CREATE_TASK_SUCCESS':
             console.log(action.payload)
             return { ...state };

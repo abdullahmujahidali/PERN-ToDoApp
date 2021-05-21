@@ -11,9 +11,7 @@ const Wrapper = styled.div`
 
 const Design = ({ children }) => {
   return (
-    <Wrapper>
-      <NavBar />
-        {children}
+    <Wrapper>        {children}
       <Footer />
     </Wrapper>
   )
