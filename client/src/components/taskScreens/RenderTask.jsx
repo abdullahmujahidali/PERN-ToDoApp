@@ -1,30 +1,74 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Cookies from 'js-cookie';
 import { Context as TodosContext } from '../../context/taskContext';
-
+import AddLabel from './AddLabel';
+import ListTasks from './ListTasks';
 const RenderTodos = () => {
-  const { state } = useContext(TodosContext); 
-  return (
-    <div className="container">
-      <div className="row justify-content-center todos">
-        {state.todos && state.todos.sort((a, b) => (b.id - a.id)).map((todo, i) => {
-          i++;
-          return (
-            <div key={todo.id} className="col-md-10 todo">
-              <button className="float-right delete-btn">
-                &times;
-              </button>
-              <button className="float-right add-btn">
-                Add task
-              </button>
-              <p>{i}. {todo.title}<br/>{todo.taskPriority} </p>
-             
+    const [showCreateTask, setshowCreateTask] = useState(false);
+    const [todoId, settodoId] = useState(0);
+    const [task, settask] = useState('')
+    const { state, createTask, markTaskAsDone, fetchTodos, deleteTodo } = useContext(TodosContext);
+
+    const handleAddTask = (todo) => {
+        setshowCreateTask(true);
+        settodoId(todo.id);
+    }
+
+    const handleChange = (e) => {
+        settask(e.target.value);
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (task) {
+            const res = await createTask({ text: task, todoId }, Cookies);
+            if (res) {
+                await fetchTodos(Cookies);
+            }
+        }
+    }
+
+    const handleDeleteTodo = async (todo) => {
+        const res = await deleteTodo(todo.id, Cookies);
+        if (res) {
+            await fetchTodos(Cookies);
+        }
+    }
+    const handleDone = async (task) => {
+        const res = await markTaskAsDone({
+            id: task.id,
+            isCompleted: true,
+            text: task.text
+        });
+        if (res) {
+            setshowCreateTask(false);
+            await fetchTodos(Cookies);
+        }
+    }
+    return (
+        <div className="container">
+            <div className="row justify-content-center todos">
+                {state.todos && state.todos.sort((a, b) => (a.id - b.id)).map((todo, i) => {
+                    i++;
+                    return (
+                        <div key={todo.id} className="col-md-10 todo">
+                            <button className="float-right delete-btn" onClick={() => handleDeleteTodo(todo)}>
+                                &times;
+                            </button>
+                            <button onClick={() => handleAddTask(todo)} className="float-right add-btn">
+                                Add task
+                            </button>
+                            <p>{i}. {todo.title}<br />{todo.taskPriority} </p>
+                            <ul className="list-group">
+                                <ListTasks handleDone={handleDone} todo={todo} />
+                            </ul>
+                            {showCreateTask && todoId === todo.id && <AddLabel handleChange={handleChange} handleSubmit={handleSubmit} />}
+                        </div>
+                    )
+                })}
             </div>
-          )
-        })}
-      </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default RenderTodos

@@ -40,7 +40,7 @@ export const createTodo = (dispatch) => async (todo, Cookies) => {
   export const createTask = (dispatch) => async (task, Cookies) => {
     try {
       dispatch({ type: 'CREATE_TASK_LOADING' });
-      const res = await apiHandler('/todoItems', 'post', task, Cookies.get('token'));
+      const res = await apiHandler('/todoTasks', 'post', task, Cookies.get('token'));
       dispatch({ type: 'CREATE_TASK_SUCCESS', payload: res.data });
       return res;
     } catch (err) {
