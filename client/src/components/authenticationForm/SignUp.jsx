@@ -129,7 +129,7 @@ const SignUp = ({ signUp }) => {
                 { 'is-invalid': confPasswordErr, 'is-valid': !confPasswordErr && confPassword.length }
               )}
               id="confPassword"
-              placeholder="confPassword"
+              placeholder="Confirm Password"
               onChange={(e) => handleChange(e, 'confPassword')}
             />
             {confPasswordErr && <small className="text-danger">{confPasswordErr}</small>}

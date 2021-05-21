@@ -65,11 +65,28 @@ Please consider following this project's author, [Abdullah Mujahid](https://gith
 
 
 
+<<<<<<< HEAD
 ## SCREENSHOTS OF USER INTERFACE
 ### LANDING
-![](images/landing.png)
+![](images/landing.PNG)
+=======
+
+>>>>>>> origin/main
+
+### SIGN UP
+![](images/signup.PNG)
 
 
+### SIGN IN
+![](images/signin.PNG)
+
+
+### HOME
+![](images/home.PNG)
+
+
+### CREATE
+![](images/add.PNG)
 
 ### Author
 

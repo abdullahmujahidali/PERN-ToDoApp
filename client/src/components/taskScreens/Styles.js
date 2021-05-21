@@ -116,6 +116,16 @@ export const TodoList = styled.div`
       background-color:red;
       color: black;
     }
+    .upbtn{
+      margin-top: 5px;
+      font-size: 15px;
+      color: black;
+      border: 0.2px solid black;
+      border-radius: 13px;
+
+      background-color:red;
+      color: black;
+    }
     .labelC{
       background-color:#38405c;
       color: white;
