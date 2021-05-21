@@ -12,7 +12,7 @@
 Please consider following this project's author, [Abdullah Mujahid](https://github.com/abdullahmujahidali), and consider starring the project to show your :heart: and support.
 
 
-## Built With PERN ( PostgreSQL Exoress React Node )
+## Built With PERN ( PostgreSQL Express React Node )
 
 * [React JS](https://reactjs.org/)
 * [Express JS](https://expressjs.com/)
