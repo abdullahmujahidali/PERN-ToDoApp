@@ -1,7 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import Cookies from 'js-cookie';
+import { Context as TodosContext, Provider as TodosProvider } from '../../context/taskContext';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 import { ModalWrapper } from './Styles';
 
-const AddTaskModal = ({ closeModal }) => {
+const AddTaskModal = (props) => {
+  const { createTodo } = useContext(TodosContext);
+  const [todo, settodo] = useState('');
+  const [option, setOption] = useState('')
   let myRef;
   useEffect(() => {
     document.addEventListener('click', closeTodoModal);
@@ -12,7 +19,28 @@ const AddTaskModal = ({ closeModal }) => {
 
   const closeTodoModal = (e) => {
     if (myRef && !myRef.contains(e.target)) {
-      closeModal();
+      props.closeModal();
+    }
+  }
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    settodo(e.target.value);
+  }
+
+  const handlePriority = (e) => {
+    e.preventDefault();
+    setOption(e.target.value);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(todo)
+    if (todo || option) {
+      await createTodo({ title: todo, taskPriority: option }, Cookies);
+      console.log(option)
+      props.closeModal();
+
     }
   }
 
@@ -26,17 +54,23 @@ const AddTaskModal = ({ closeModal }) => {
             name="todo"
             className="form-control"
             placeholder="Enter new Todo"
+            onChange={handleChange}
           />
-          <br/>
-           <input
-            type="text"
-            name="priority"
-            className="form-control"
-            placeholder="Enter Task Priority"
-          />      
+          <br />
+          <select name='option' className="form-control"
+            onChange={(e) => {
+              const selectedPri = e.target.value;
+              setOption(selectedPri);
+            }}
+          >
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
         </div>
         <button
           className="btn btn-primary float-right"
+          onClick={handleSubmit}
         >
           Save
         </button>

@@ -25,7 +25,7 @@ export const setCurrentUser = (dispatch) => (Cookies, jwtDecode) => {
 export const signIn = (dispatch) => async (user) => {
     try {
         dispatch({ type: 'SIGNIN_USER_LOADING' });
-        const res = await apiHandler('/auth/sign_in', 'post', user);
+        const res = await apiHandler('/auth/signin', 'post', user);
         dispatch({ type: 'SIGNIN_USER_SUCCESS', payload: res.data });
         return res;
     } catch (err) {

@@ -13,7 +13,7 @@ const task = {
             return next(new Error(exp));
         }
     },
-    async fetchAllTask({ body, decode }, res, next) {
+    async fetchAllTask({ decode }, res, next) {
         try {
             const myTask = await Todo.findAll({
                 where: { userId: decode.userId },
