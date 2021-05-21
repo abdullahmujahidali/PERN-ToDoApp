@@ -65,13 +65,12 @@ Please consider following this project's author, [Abdullah Mujahid](https://gith
 
 
 
-<<<<<<< HEAD
+
 ## SCREENSHOTS OF USER INTERFACE
 ### LANDING
 ![](images/landing.PNG)
 =======
 
->>>>>>> origin/main
 
 ### SIGN UP
 ![](images/signup.PNG)
