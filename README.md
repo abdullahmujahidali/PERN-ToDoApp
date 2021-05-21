@@ -56,7 +56,8 @@ Please consider following this project's author, [Abdullah Mujahid](https://gith
 * Now in order to run cliend side open another terminal tab and run cd client to change into the client directory.
 * When you are inside the client directory run   *npm install*   again to install dependencies for the client side.
 * When you are done with that now run    *npm start*  to completely start the application.
-* *           BOOM                        *
+
+
 
 
 
