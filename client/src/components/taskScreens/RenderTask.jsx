@@ -77,7 +77,7 @@ const RenderTodos = () => {
                                     <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
                                 </svg>
                             </button>
-
+                            <button className={ checkColor(todo.taskPriority) } >{todo.taskPriority} </button> 
 
                             <row>
                                 <button onClick={() => handleAddTask(todo)} className="float-right edit-btn">
@@ -89,20 +89,19 @@ const RenderTodos = () => {
 
                                 <div className="col-md-10">
                                 <p style={{marginTop:"50px;"}}> <h3 >Title:  {todo.title}
-                                     <button className={ checkColor(todo.taskPriority) } >{todo.taskPriority} </button>   </h3>     </p>
-                                    Status: <b>{todo.isCompleted === true ? 'Completed' : 'Incomplete'}</b>
+                                      </h3>     </p>
+                                   <h6> Status: <b>{todo.isCompleted === true ? 'Completed' : 'Incomplete'}</b></h6>
                                     <br />
+                                    <b>
                                     {
+                                       
                                         todo.taskLabel.split(',').reduce((all, cur) => [
                                         ...all,
                                         <row>
-                                        <button className="labelC" >{cur} </button>
+                                        <button className="labelC" > { cur} </button> 
                                         </row>
                                     ])}
-
-                                </div>
-                                <div style={{borderLeft: "6px solid black", height: "500px;", color:"white;"}}>
-                               sad
+                                    </b>
                                 </div>
                             </row>
 

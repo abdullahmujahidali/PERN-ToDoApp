@@ -36,9 +36,11 @@ const ListTodos = () => {
         {showModal && <AddTaskModal closeModal={handleCloseModal} />}
         <div className="container">
           <div className="row">
-            <div className="col-md-12 header text-center mt-3">
-              <h1 className="blinking">My Todos   <button className="btn btn-primary float-right" onClick={handleShowModal}>New</button> </h1>
+            <div className="col-md-12 header  mt-8">
+              <h1 className="blinking">Welcome to your to do list!   <button className="btn btn-dark float-right" onClick={handleShowModal}>Add a new Task</button>  </h1>
+           
             </div>
+
           </div>
           <div className="row">
           </div>

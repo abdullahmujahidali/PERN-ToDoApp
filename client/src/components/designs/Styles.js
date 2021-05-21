@@ -7,7 +7,8 @@ export const Nav = styled.nav`
   color: #fff;
   background-color: #000;
   .logo {
-    font-family: Lora;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-style: italic;
     font-weight: bold;
     line-height: 55px;

@@ -40,7 +40,7 @@ const AddTaskModal = (props) => {
     console.log("value: ",dragChecked)
     console.log("labels: ",label)
     if (todo || option) {
-      label='Priority,'+label;
+      label='Labels: ,'+label;
       await createTodo({ title: todo, taskPriority: option, isCompleted:dragChecked,taskLabel:label }, Cookies);
       props.closeModal();
     }
@@ -50,6 +50,7 @@ const AddTaskModal = (props) => {
     <ModalWrapper>
       <form ref={(node) => (myRef = node)}>
         <h4 className="text-center">Create Todo</h4>
+        <h6 className="text-center"> <b>Note:</b>Add ',' between labels</h6>
         <div className="form-group">
           <input
             type="text"

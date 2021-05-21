@@ -4,6 +4,7 @@ export const Tick = styled(CheckDouble)`
   width: 30px;
   color: #06A82A;
   margin-right: -10px;
+  
 `;
 export const TodoList = styled.div`
   width: 100%;
@@ -17,6 +18,7 @@ export const TodoList = styled.div`
     background: rgba(204, 204, 204, 0.1);
     border: 1px solid rgba(10, 248, 77, 0.5);
     padding: 10px;
+    padding: 15px;
   }
   .yelp{
     max-width: auto;
@@ -30,7 +32,7 @@ export const TodoList = styled.div`
 
     background-color: green;
     transition: transform .2s; /* Animation */
-   
+
     margin: 0 auto;
   }
 
@@ -39,6 +41,7 @@ export const TodoList = styled.div`
 }
 .blinking{
     animation:blinkingText 1.2s infinite;
+    padding: 15px;
 }
 @keyframes blinkingText{
     0%{     color: #000;    }
@@ -51,7 +54,10 @@ export const TodoList = styled.div`
     border: 1px solid #ccc;
     margin: 10px;
     position: relative;
-    padding: 0 20px 10px 20px;
+    padding-left:20px;
+    padding-right: 20px;
+    padding-top:20px;
+    padding-bottom: 20px;
     background-color: #fff;
     min-height: 100px;
     .float-right button {
@@ -80,7 +86,7 @@ export const TodoList = styled.div`
     }
     .edit-btn {
       position: absolute;
-      top:40px;
+      top:50px;
       right: 36px;
       border: 0px;
       background-color:white;
@@ -91,19 +97,30 @@ export const TodoList = styled.div`
       position: absolute;
       border: 0px;
       right: 10px;
-      top:40px;
+      top:50px;
       width: 25px;
       background-color: white;
 
     }
     .High{
+      position:absolute;
+      right:10px;
+      top:15px;
+      font-size: 15px;
+      color: black;
+      border: 0.2px solid black;
+      border-radius: 13px;
+      min-width: 80px;
+      padding-left: 15px;
+      padding-right: 15px;
       background-color:red;
       color: black;
     }
     .labelC{
-      background-color:green;
+      background-color:#38405c;
       color: white;
       border: 0.2px;
+      margin-left: 15px;
       border-radius: 13px;
       min-width: 80px;
       padding-left: 15px;
@@ -111,8 +128,9 @@ export const TodoList = styled.div`
     }
     .Medium{
       position:absolute;
-      right:0%;
-      top:8px;
+      right:10px;
+      right:10px;
+      top:15px;
       font-size: 15px;
       background-color:yellow;
       color: black;
@@ -126,6 +144,9 @@ export const TodoList = styled.div`
     max-width: auto;
     max-height: auto;
     margin: auto;
+    font-family: 'Roboto', sans-serif ;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 15px;
     background-color: #fff;
     -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
     box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
@@ -135,9 +156,10 @@ export const TodoList = styled.div`
     }
     .Low{
       position:absolute;
-      right:0%;
-      top:8px;
+      right:10px;
+      top:15px;
       font-size: 15px;
+      right:10px;
       color: black;
       border: 0.2px solid black;
       border-radius: 13px;

@@ -1,6 +1,14 @@
 import models from "../models";
 import { hasPass,matchPass,myToken } from "../utils";
 
+/*
+This file is responsible to fetch the data from the body (front end) and it returns status code along with the situation
+status 201 : Created
+status 200: Ok
+status 400: Bad Request
+Used for authentication (Sign Up & Sign In)
+*/
+
 const {User} = models;
 
 const auth ={
