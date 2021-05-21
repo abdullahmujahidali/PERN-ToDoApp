@@ -52,11 +52,16 @@ Please consider following this project's author, [Abdullah Mujahid](https://gith
 ## How to run this application.
 * Clone this repo
 * In the root directory of this project open terminal and enter run npm install. This will install all the packages necessary for the application
-* To start the backend server you have to open terminal and enter the command      *npm run dev*.
+* To start the backend server you have to open terminal and enter the command      `npm run dev`
 * Now in order to run cliend side open another terminal tab and run cd client to change into the client directory.
-* When you are inside the client directory run   *npm install*   again to install dependencies for the client side.
-* When you are done with that now run    *npm start*  to completely start the application.
+* When you are inside the client directory run  `npm install`   again to install dependencies for the client side.
+* When you are done with that now run    `npm start`  to completely start the application.
 
+
+## IMPORTANT COMMANDS DEFINED THAT YOU SHOULD KNOW.
+* `npm run migrate:all` is responsible for db:migrate:undo:all and db:migrate
+* `npm run dev` is to run server side.
+* `npm start` is to run client side.
 
 
 
